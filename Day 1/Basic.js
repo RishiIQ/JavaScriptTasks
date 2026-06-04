@@ -56,9 +56,9 @@ var favoriteFood="Chicken Biryani"
 var favoriteColor="Black"
 var favoriteMovie=" Leo"
 
-console.log("Food:",favoriteFood)
-console.log("color:",favoriteColor)
-console.log("Movie:",favoriteMovie)
+console.log("Food: ",favoriteFood)
+console.log("color: ",favoriteColor)
+console.log("Movie: ",favoriteMovie)
 
 
 // Task 9: Mini Bio Data
@@ -67,13 +67,13 @@ const age=26
 const phone=9600377981
 let email="rishi@gmail.com"
 
-console.log("name");
-console.log("age");
-console.log("phone");
-console.log("email")
+console.log(name);
+console.log(age);
+console.log(phone);
+console.log(email)
 
 
 // Task 10 (Challenge)""
-var Name=input("Enter a Name")
-var Course=input("Enter a Course")
+var Name=input("Enter a Name : ")
+var Course=input("Enter a Course : ")
 alert("Hello ", Name , " , " , "Welcome to ",Course," Course")
