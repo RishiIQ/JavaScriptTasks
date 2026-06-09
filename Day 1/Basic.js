@@ -30,9 +30,9 @@ console.log(confirm("Do you know JavaScript?"))
 
 
 // Task 5: Student Information
-let studentName = input("Enter name: ")
-let studentAge = input("Enter age: ")
-let studentCity = input("Enter city: ")
+let studentName = prompt("Enter name: ")
+let studentAge = prompt("Enter age: ")
+let studentCity = prompt("Enter city: ")
 
 console.log("Name : " , studentName)
 console.log("Age :  " , studentAge)
@@ -74,6 +74,6 @@ console.log(email)
 
 
 // Task 10 (Challenge)""
-var Name=input("Enter a Name : ")
-var Course=input("Enter a Course : ")
+var Name=prompt("Enter a Name : ")
+var Course=prompt("Enter a Course : ")
 alert("Hello ", Name , " , " , "Welcome to ",Course," Course")
