@@ -222,3 +222,136 @@ for (let key in patientRecords){
 console.log(`\n ----- destructured -----`);
 let {patientName , age ,disease , doctor } = patientRecords
 console.log(`Name :  , ${patientName} \nAge :  ${age}  \nDisease :  ${disease}  \nDoctor ${doctor}`);
+
+
+
+
+// Task 11: Amazon Order Tracker
+ console.log("\n------------11: Amazon Order Tracker------------");
+
+function sendSms(){
+  console.log("Send Sms")
+}
+
+function placeOrder(callback){
+
+    console.log(`order Was successfully placed`);
+    callback()
+}
+
+placeOrder(sendSms)
+
+// Task 12: Cashback Offer Generator
+console.log("\n------------12: Cashback Offer Generator------------");
+ 
+
+function* cashbackOfferGenerator() {
+    yield "10% Cashback";
+    yield "20% Cashback";
+    yield "Free Delivery";
+    yield "Buy 1 Get 1";
+}
+
+const offerIterator = cashbackOfferGenerator();
+console.log(offerIterator.next().value); 
+console.log(offerIterator.next().value);
+console.log(offerIterator.next().value); 
+console.log(offerIterator.next().value); 
+
+// Task 13: Employee Database
+console.log("\n------------13: Employee Database------------");
+const employees = [
+    { id: 1, name: "Rahul", salary: 25000 },
+    { id: 2, name: "Kavin", salary: 30000 },
+    { id: 3, name: "John", salary: 40000 }
+];
+
+
+console.log("Employee Names:");
+for (let i = 0; i < employees.length; i++) {
+    console.log(employees[i].name);
+}
+
+
+let totalSalary = 0;
+for (let i = 0; i < employees.length; i++) {
+    totalSalary += employees[i].salary;
+}
+console.log("\nTotal Salary Expense:", totalSalary);
+
+
+let highestPaid = employees[0];
+for (let i = 1; i < employees.length; i++) {
+    if (employees[i].salary > highestPaid.salary) {
+        highestPaid = employees[i];
+    }
+}
+console.log("\nHighest Paid Employee:", highestPaid.name, "-", highestPaid.salary);
+
+
+// Task 14: Railway Reservation System
+console.log("\n------------14: Railway Reservation System------------");
+
+let totalSeats = 50;
+
+
+function bookSeat(seatsRequested) {
+    if (seatsRequested <= 0) {
+        console.log("Invalid number of seats.");
+        return;
+    }
+
+    if (seatsRequested <= totalSeats) {
+        totalSeats -= seatsRequested;
+        console.log(`Successfully booked ${seatsRequested} seat(s).`);
+        console.log(`Remaining seats: ${totalSeats}`);
+    } else {
+        console.log(`Sorry, only ${totalSeats} seat(s) available. Booking rejected.`);
+    }
+}
+
+
+bookSeat(5);   
+bookSeat(48);  
+bookSeat(10); 
+bookSeat(1);  
+
+// Task 15: Mobile Store Billing System
+console.log("\n------------15: Mobile Store Billing System------------");
+
+
+const productCatalog = {
+    "Mobile": 25000,
+    "Laptop": 50000,
+    "Headphone": 2000,
+    "Smartwatch": 5000
+};
+
+
+const selectedProducts = ["Mobile", "Headphone", "Smartwatch"];
+
+function generateBill(items) {
+    let totalAmount = 0;
+    
+    console.log("--- Selected Products ---");
+    for (let i = 0; i < items.length; i++) {
+        let productName = items[i];
+        let price = productCatalog[productName];
+        
+        console.log(`${productName}: ₹${price}`);
+        totalAmount += price;
+    }
+
+
+    const gstRate = 0.18;
+    const gstAmount = totalAmount * gstRate;
+    const finalBill = totalAmount + gstAmount;
+
+    console.log("-------------------------");
+    console.log(`Total Amount: ₹${totalAmount}`);
+    console.log(`GST (18%):    ₹${gstAmount}`);
+    console.log(`Final Bill:   ₹${finalBill}`);
+}
+
+
+generateBill(selectedProducts);
