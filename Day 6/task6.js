@@ -123,31 +123,30 @@ function calculateBonus(percentage, callback) {
 
 calculateBonus(20, calculateSalary(25000));
 
-
 // Task 7: E-commerce Discount Engine
 console.log(`\n ---7: E-commerce Discount Engine---`);
 
-function generateInvoice(amount){
-    console.log("----Your Invoice----");
-    
-    console.log("Your bill amount is : " , amount);
+function generateInvoice(amount) {
+  console.log('----Your Invoice----');
+
+  console.log('Your bill amount is : ', amount);
 }
 
-function applyDiscount(price,percentage,callback){
-    let finalPrice = price * (1 - (percentage/100))
-    generateInvoice(finalPrice)
+function applyDiscount(price, percentage, callback) {
+  let finalPrice = price * (1 - percentage / 100);
+  generateInvoice(finalPrice);
 }
 
-applyDiscount(10000,10,generateInvoice)
+applyDiscount(10000, 10, generateInvoice);
 
 // Task 8: Promotional Offers
 console.log(`\n ---8: Promotional Offers---`);
 
 function* offerGenerator() {
-    yield "10% OFF";
-    yield "20% OFF";
-    yield "Free Delivery";
-    yield "Buy 1 Get 1";
+  yield '10% OFF';
+  yield '20% OFF';
+  yield 'Free Delivery';
+  yield 'Buy 1 Get 1';
 }
 
 const getOffer = offerGenerator();
@@ -155,23 +154,145 @@ const getOffer = offerGenerator();
 console.log(getOffer.next().value);
 console.log(getOffer.next().value);
 console.log(getOffer.next().value);
-console.log(getOffer.next().value); 
-
-
+console.log(getOffer.next().value);
 
 // Task 9: Student Database Merge
 console.log(`\n ---9: Student Database Merge---`);
 
-let scienceStudents = ["Rishi","Rithulan"]
-let commerceStudents =["Suthir","Sarath"]
+let scienceStudents = ['Rishi', 'Rithulan'];
+let commerceStudents = ['Suthir', 'Sarath'];
 
-let merge = [...scienceStudents,...commerceStudents]
+let merge = [...scienceStudents, ...commerceStudents];
 
-console.log("All students " , merge);
+console.log('All students ', merge);
 
-console.log(`\n --- ---`);
-console.log(`\n --- ---`);
-console.log(`\n --- ---`);
-console.log(`\n --- ---`);
-console.log(`\n --- ---`);
-console.log(`\n --- ---`);
+// Task 10: Online Exam System (Rest Operator)
+console.log(`\n ---10: Online Exam System---`);
+
+function calculateTotal(studentName, ...marks) {
+  let total = 0;
+  for (let i = 0; i < marks.length; i++) {
+    total += marks[i];
+  }
+  console.log(`Student: ${studentName} | Total Marks: ${total}`);
+}
+
+calculateTotal('Rishi', 85, 90, 78, 92);
+
+// Task 11: Employee Profile (Object Destructuring)
+console.log(`\n ---11: Employee Profile---`);
+
+const employee = {
+  name: 'Rahul',
+  department: 'IT',
+  salary: 50000,
+  experience: 3,
+};
+
+const { name, department, salary, experience } = employee;
+
+console.log('Name:', name);
+console.log('Department:', department);
+console.log('Salary:', salary);
+console.log('Experience:', experience + ' years');
+
+// Task 12: Product Inventory Filter (Filter Method)
+console.log(`\n ---12: Product Inventory Filter---`);
+
+const products = [
+  { name: 'Mouse', price: 500 },
+  { name: 'Laptop', price: 60000 },
+  { name: 'Keyboard', price: 1200 },
+  { name: 'Monitor', price: 15000 },
+];
+
+const expensiveProducts = products.filter((product) => product.price > 5000);
+
+console.log('Products above ₹5000: ', expensiveProducts);
+
+// Task 13: Find First Premium Customer (Find Method)
+console.log(`\n ---13: Find First Premium Customer---`);
+
+const purchaseAmounts = [20000, 45000, 60000, 75000];
+const firstPremium = purchaseAmounts.find((amount) => amount > 50000);
+
+console.log('First Premium Customer Purchase:', firstPremium);
+
+// Task 14: Company Expense Tracker (Reduce Method)
+console.log(`\n ---14: Company Expense Tracker---`);
+
+const expenses = [5000, 12000, 3000, 8000];
+const totalExpense = expenses.reduce((total, expense) => total + expense, 0);
+
+console.log('Total Company Expenses:', totalExpense);
+
+// Task 15: Gaming Tournament Verification (Every Method)
+console.log(`\n ---15: Gaming Tournament Verification---`);
+
+const players = [
+  { name: 'Rishi', age: 26 },
+  { name: 'Suthir', age: 25 },
+  { name: 'Kavin', age: 20 },
+];
+
+const allAdults = players.every((player) => player.age > 18);
+
+console.log('Are all players above 18?:', allAdults);
+
+// Task 16: Job Portal Search (Some Method)
+console.log(`\n ---16: Job Portal Search---`);
+
+const candidates = [
+  { name: 'Rahul', skills: ['Python', 'Java'] },
+  { name: 'John', skills: ['React', 'Node.js'] },
+];
+
+const hasReactExpert = candidates.some((candidate) => candidate.skills.includes('React'));
+
+console.log('Is there a candidate who knows React?:', hasReactExpert);
+
+// Task 17: Mobile Number Validator (String Methods)
+console.log(`\n ---17: Mobile Number Validator---`);
+
+function validateMobile(number) {
+  let numStr = number.toString();
+  let isValid =
+    numStr.length === 10 &&
+    (numStr.startsWith('6') ||
+      numStr.startsWith('7') ||
+      numStr.startsWith('8') ||
+      numStr.startsWith('9'));
+  console.log(`Number ${number} valid:`, isValid);
+}
+
+validateMobile('9876543210');
+
+// Task 18: URL Slug Generator (Split + Join)
+console.log(`\n ---18: URL Slug Generator---`);
+
+let title = 'Learn JavaScript Complete Course';
+let slug = title.toLowerCase().split(' ').join('-');
+
+console.log('Generated Slug:', slug);
+
+// Task 19: Employee Sorting Dashboard (Sort Method)
+console.log(`\n ---19: Employee Sorting Dashboard---`);
+
+const emps = [
+  { name: 'Rahul', salary: 25000 },
+  { name: 'Kavin', salary: 40000 },
+  { name: 'John', salary: 30000 },
+];
+
+const sorted = [...emps].sort((a, b) => b.salary - a.salary);
+console.log('Employees sorted by salary (High to Low):', sorted);
+
+// Task 20: Movie Booking System (Map Method)
+console.log(`\n ---20: Movie Booking System---`);
+
+const movies = ['Inception', 'Interstellar', 'Tenet'];
+const bookingIds = movies.map((movie, index) => {
+  return { id: index + 1, movieName: movie };
+});
+
+console.log('Booking IDs:', bookingIds)
