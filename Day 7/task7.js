@@ -81,12 +81,12 @@ const studentData = [
  {name:"D",mark:30}
 ]
 
-const passedStudents = students.filter(student => student.mark >= 40);
+const passedStudents = studentData.filter(student => student.mark >= 40);
 
-const failedStudents = students.filter(student => student.mark < 40);
+const failedStudents = studentData.filter(student => student.mark < 40);
 
 
-const gradeList = students.map(student => {
+const gradeList = studentData.map(student => {
     let grade;
     if (student.mark >= 80) grade = "A";
     else if (student.mark >= 40) grade = "B";
@@ -99,11 +99,130 @@ console.log("Passed Students:", passedStudents);
 console.log("Failed Students:", failedStudents);
 console.log("Grade List:", gradeList);
 
+// Task 6: Online Food Delivery
+console.log(`\n ---Task 6: Online Food Delivery---`);
+function placeOrder(customerName, ...items) {
+    console.log(`--- Order Details ---`);
+    console.log(`Customer Name: ${customerName}`);
+    
+    console.log(`Ordered Items: ${items.join(", ")}`);
+    
+    console.log(`Total Item Count: ${items.length}`);
+}
+placeOrder("Rishi", "Pizza", "Burger", "Coke");
+placeOrder("Kowsalya", "Pasta", "Garlic Bread");
 
 
-console.log(`\n --- ---`);
-console.log(`\n --- ---`);
-console.log(`\n --- ---`);
-console.log(`\n --- ---`);
-console.log(`\n --- ---`);
-console.log(`\n --- ---`);
+// Task 7: Bank Account System
+console.log(`\n ---Task 7: Bank Account System---`);
+
+let balance = 1000;
+
+function deposit(amount) {
+balance += amount;
+return balance;
+}
+
+function withdraw(amount) {
+if (amount <= balance) {
+balance -= amount;
+}
+return balance;
+}
+
+function checkBalance() {
+return balance;
+}
+
+console.log("Deposit 500:", deposit(500));
+console.log("Withdraw 200:", withdraw(200));
+console.log("Current Balance:", checkBalance());
+
+// Task 8: Movie Ticket Booking
+console.log(`\n ---Task 8: Movie Ticket Booking---`);
+
+let bookedSeats = ["A1", "B2", "C3"];
+function bookSeat(seat) {
+if (!bookedSeats.includes(seat)) {
+bookedSeats.push(seat);
+console.log(seat, "booked successfully.");
+} else {
+console.log(seat, "is already booked.");
+}
+}
+bookSeat("D4");
+bookSeat("A1");
+console.log("All booked seats:", bookedSeats);
+
+// Task 9: User Login Validation
+console.log(`\n ---Task 9: User Login Validation---`);
+
+function validateLogin(username, password, email) {
+let isValid = true;
+if (username.includes(" ")) isValid = false;
+if (password.length < 8) isValid = false;
+if (!email.includes("@")) isValid = false;
+return isValid;
+}
+console.log("Login valid:", validateLogin("Rishi", "password123", "rishi@gmail.com"));
+ 
+// Task 10: Product API Dashboard
+console.log(`\n ---Task 10: Product API Dashboard---`);
+
+async function fetchProducts() {
+const response = await fetch('https://fakestoreapi.com/products');
+const products = await response.json();
+products.forEach(p => console.log("Title:", p.title));
+const expensive = products.filter(p => p.price > 1000);
+console.log("Products above 1000:", expensive.length);
+console.log("Total products:", products.length);
+}
+fetchProducts();
+
+// Task 11: Birthday Day Finder
+console.log(`\n ---Task 11: Birthday Day Finder---`);
+
+function getDOBDetails(dobString) {
+const dob = new Date(dobString);
+console.log("Day:", dob.getDate());
+console.log("Month:", dob.getMonth() + 1);
+console.log("Year:", dob.getFullYear());
+console.log("Weekday:", dob.toLocaleDateString('en-US', { weekday: 'long' }));
+}
+getDOBDetails("1999-07-11");
+
+// Task 12: Netflix Subscription System
+console.log(`\n ---Task 12: Netflix Subscription System---`);
+
+let plan = "Premium";
+let benefits = plan === "Mobile" ? "480p" : plan === "Basic" ? "720p" : plan === "Standard" ? "1080p" : "4K+HDR";
+console.log("Plan:", plan, "| Benefits:", benefits);
+
+// Task 13: Hospital Patient Management
+console.log(`\n ---Task 13: Hospital Patient Management---`);
+
+const patients = [{id: 1, name: "A", critical: true}, {id: 2, name: "B", critical: false}];
+console.log("Critical:", patients.filter(p => p.critical));
+console.log("Patient ID 1:", patients.find(p => p.id === 1));
+console.log("Total:", patients.length);
+
+// Task 14: Inventory Management System
+console.log(`\n ---Task 14: Inventory Management System---`);
+
+const inv1 = [{name: "Laptop", price: 50000}];
+const inv2 = [{name: "Mouse", price: 500}];
+const merged = [...inv1, ...inv2];
+const { name, price } = merged[0];
+const newInv = [...merged, {name: "Keyboard", price: 1000}];
+console.log(newInv);
+
+// Task 15: WhatsApp Group Management
+console.log(`\n ---Task 15: WhatsApp Group Management---`);
+
+let group = ["Rishi", "Kowsalya"];
+group.push("Mohan");
+group.pop();
+group.shift();
+group.unshift("Sugapriya");
+group.splice(1, 0, "Shubham");
+console.log("Final List:", group)
